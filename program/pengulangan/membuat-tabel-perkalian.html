@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <pre id="output"></pre>
+
+    <script>
+      document.getElementById("output").textContent = "Tabel Perkalian\n\n";
+      let n = 10;
+
+      for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= n; j++) {
+          let val = (i * j).toString().padStart(4, " ");
+          document.getElementById("output").textContent += val + " ";
+        }
+        document.getElementById("output").textContent += "\n";
+      }
+    </script>
+  </body>
+</html>

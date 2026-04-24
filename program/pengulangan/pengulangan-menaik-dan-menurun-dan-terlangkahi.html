@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <pre id="output"></pre>
+
+    <script>
+      let output = "Pengulangan Menaik, Menurun, dan Terlangkahi\n\n";
+
+      for (let i = 0; i < 10; i += 2) {
+        output += `Menaik: ${i}\n`;
+      }
+
+      for (let i = 10; i > 0; i -= 3) {
+        output += `Menurun: ${i}\n`;
+      }
+
+      document.getElementById("output").textContent = output;
+    </script>
+  </body>
+</html>

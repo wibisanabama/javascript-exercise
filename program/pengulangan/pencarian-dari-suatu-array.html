@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Pencarian dari Suatu Array</p>
+    <input type="number" id="inputTarget" placeholder="Pilih (1-15)">
+    <button onclick="cari()">Cari</button>
+    <pre id="output"></pre>
+
+    <script>
+      function cari() {
+        const array = [3, 5, 7, 9, 11, 13, 15];
+        const target = parseInt(document.getElementById("inputTarget").value);
+        let ditemukan = false;
+        const output = document.getElementById("output");
+        output.textContent = "";
+
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === target) {
+            output.textContent = `Elemen ${target} di temukan di index ${i}`;
+            ditemukan = true;
+            break;
+          }
+        }
+
+        if (!ditemukan) {
+          output.textContent = `Elemen ${target} tidak ditemukan`;
+        }
+      }
+    </script>
+  </body>
+</html>
