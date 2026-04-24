@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selisih Waktu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f8fafc;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #3b82f6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e0f2fe;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Program Selisih Waktu</h1>
+
+  <label>Waktu Pertama</label>
+  <input type="number" id="jam1" placeholder="Jam pertama">
+  <input type="number" id="menit1" placeholder="Menit pertama">
+  <input type="number" id="detik1" placeholder="Detik pertama">
+
+  <label>Waktu Kedua</label>
+  <input type="number" id="jam2" placeholder="Jam kedua">
+  <input type="number" id="menit2" placeholder="Menit kedua">
+  <input type="number" id="detik2" placeholder="Detik kedua">
+
+  <button onclick="hitungSelisih()">Hitung Selisih Waktu</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitungSelisih() {
+      const jam1 = parseInt(document.getElementById("jam1").value) || 0;
+      const menit1 = parseInt(document.getElementById("menit1").value) || 0;
+      const detik1 = parseInt(document.getElementById("detik1").value) || 0;
+
+      const jam2 = parseInt(document.getElementById("jam2").value) || 0;
+      const menit2 = parseInt(document.getElementById("menit2").value) || 0;
+      const detik2 = parseInt(document.getElementById("detik2").value) || 0;
+
+      const totalDetik1 = (jam1 * 3600) + (menit1 * 60) + detik1;
+      const totalDetik2 = (jam2 * 3600) + (menit2 * 60) + detik2;
+
+      const selisihDetik = Math.abs(totalDetik1 - totalDetik2);
+
+      const jamSelisih = Math.floor(selisihDetik / 3600);
+      const sisaDetik = selisihDetik % 3600;
+      const menitSelisih = Math.floor(sisaDetik / 60);
+      const detikSelisih = sisaDetik % 60;
+
+      document.getElementById("hasil").innerHTML = `
+        <p>Selisih Waktu: <strong>${jamSelisih} jam, ${menitSelisih} menit, ${detikSelisih} detik</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rumus Geometri</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 450px;
+      margin: auto;
+      background-color: #fef9f0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: #f97316;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ea580c;
+    }
+    .result {
+      margin-top: 20px;
+      background: #fff7ed;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rumus Geometri</h1>
+
+  <label for="sisi">Sisi Persegi</label>
+  <input type="number" id="sisi" placeholder="Masukkan sisi persegi" step="any" />
+
+  <label for="radius">Radius Lingkaran</label>
+  <input type="number" id="radius" placeholder="Masukkan radius lingkaran" step="any" />
+
+  <label for="alas">Alas Segitiga</label>
+  <input type="number" id="alas" placeholder="Masukkan alas segitiga" step="any" />
+
+  <label for="tinggi">Tinggi Segitiga</label>
+  <input type="number" id="tinggi" placeholder="Masukkan tinggi segitiga" step="any" />
+
+  <button onclick="hitungLuas()">Hitung Luas</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitungLuas() {
+      const sisi = parseFloat(document.getElementById('sisi').value);
+      const radius = parseFloat(document.getElementById('radius').value);
+      const alas = parseFloat(document.getElementById('alas').value);
+      const tinggi = parseFloat(document.getElementById('tinggi').value);
+
+      let pesan = '';
+
+      if (!isNaN(sisi)) {
+        const luasPersegi = sisi * sisi;
+        pesan += `Luas Persegi: <strong>${luasPersegi.toFixed(2)}</strong><br>`;
+      } else {
+        pesan += 'Luas Persegi: <em>Input sisi kosong atau tidak valid</em><br>';
+      }
+
+      if (!isNaN(radius)) {
+        const luasLingkaran = 3.14 * radius ** 2;
+        pesan += `Luas Lingkaran: <strong>${luasLingkaran.toFixed(2)}</strong><br>`;
+      } else {
+        pesan += 'Luas Lingkaran: <em>Input radius kosong atau tidak valid</em><br>';
+      }
+
+      if (!isNaN(alas) && !isNaN(tinggi)) {
+        const luasSegitiga = 0.5 * alas * tinggi;
+        pesan += `Luas Segitiga: <strong>${luasSegitiga.toFixed(2)}</strong>`;
+      } else {
+        pesan += 'Luas Segitiga: <em>Input alas atau tinggi kosong atau tidak valid</em>';
+      }
+
+      document.getElementById('hasil').innerHTML = pesan;
+    }
+  </script>
+
+</body>
+</html>

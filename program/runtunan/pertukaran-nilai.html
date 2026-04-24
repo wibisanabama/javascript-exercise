@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertukaran Nilai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #fefae0;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e9edc9;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pertukaran Nilai</h1>
+
+  <input type="number" id="nilaiA" placeholder="Nilai a">
+  <input type="number" id="nilaiB" placeholder="Nilai b">
+  <button onclick="tukarNilai()">Tukar</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function tukarNilai() {
+      let a = parseInt(document.getElementById("nilaiA").value);
+      let b = parseInt(document.getElementById("nilaiB").value);
+
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById("hasil").innerHTML = "Masukkan kedua nilai dengan benar!";
+        return;
+      }
+
+      const sebelum = `Sebelum pertukaran: a = ${a}, b = ${b}`;
+      // Tukar nilai
+      [a, b] = [b, a];
+      const setelah = `Setelah pertukaran: a = ${a}, b = ${b}`;
+
+      document.getElementById("hasil").innerHTML = `
+        <p>${sebelum}</p>
+        <p><strong>${setelah}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

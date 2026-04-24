@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganjil atau Genap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f0f4f8;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e1f5fe;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Menentukan Ganjil atau Genap</h1>
+
+  <input type="number" id="inputAngka" placeholder="Masukkan bilangan">
+  <button onclick="cekGanjilGenap()">Cek</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function cekGanjilGenap() {
+      const angka = parseInt(document.getElementById("inputAngka").value);
+
+      if (isNaN(angka)) {
+        document.getElementById("hasil").innerHTML = "Masukkan bilangan yang valid!";
+        return;
+      }
+
+      const jenis = (angka % 2 === 0) ? "Genap" : "Ganjil";
+
+      document.getElementById("hasil").innerHTML = `
+        <p>${angka} adalah bilangan <strong>${jenis}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

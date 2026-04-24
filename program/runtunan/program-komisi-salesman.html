@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komisi Salesman</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #fffbea;
+      max-width: 450px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e6fffa;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Program Komisi Salesman</h1>
+
+  <input type="number" id="penjualan" placeholder="Masukkan Total Penjualan">
+  <button onclick="hitungKomisi()">Hitung Komisi</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitungKomisi() {
+      const penjualan = parseFloat(document.getElementById("penjualan").value);
+
+      if (isNaN(penjualan)) {
+        document.getElementById("hasil").innerHTML = "Masukkan total penjualan yang valid!";
+        return;
+      }
+
+      const komisi = penjualan > 100000 ? penjualan * 0.1 : penjualan * 0.05;
+
+      document.getElementById("hasil").innerHTML = `
+        <p>Komisi Salesman: <strong>Rp ${komisi.toFixed(2)}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

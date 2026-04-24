@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaji Bersih Karyawan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f3f4f6;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #d1fae5;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Program Gaji Bersih Karyawan</h1>
+
+  <input type="number" id="gajiKotor" placeholder="Gaji Kotor">
+  <input type="number" id="pajak" placeholder="Pajak (dalam desimal, misal 0.1 untuk 10%)" step="0.01">
+  <input type="number" id="asuransi" placeholder="Asuransi">
+  <button onclick="hitungGajiBersih()">Hitung</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitungGajiBersih() {
+      const gajiKotor = parseFloat(document.getElementById("gajiKotor").value);
+      const pajak = parseFloat(document.getElementById("pajak").value);
+      const asuransi = parseFloat(document.getElementById("asuransi").value);
+
+      if (isNaN(gajiKotor) || isNaN(pajak) || isNaN(asuransi)) {
+        document.getElementById("hasil").innerHTML = "Harap isi semua input dengan angka yang valid!";
+        return;
+      }
+
+      const gajiBersih = gajiKotor - (gajiKotor * pajak) - asuransi;
+
+      document.getElementById("hasil").innerHTML = `
+        <p>Gaji Bersih Karyawan: <strong>Rp ${gajiBersih.toFixed(2)}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

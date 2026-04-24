@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konversi Suhu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f0f8ff;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e0f7fa;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Konversi Suhu (C, F, K, R)</h1>
+
+  <input type="number" id="celsiusInput" placeholder="Masukkan Celsius">
+  <button onclick="konversiSuhu()">Konversi</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function konversiSuhu() {
+      const celsius = parseFloat(document.getElementById("celsiusInput").value);
+      if (isNaN(celsius)) {
+        document.getElementById("hasil").innerHTML = "Masukkan angka yang valid!";
+        return;
+      }
+
+      const fahrenheit = (celsius * 9/5) + 32;
+      const kelvin = celsius + 273.15;
+      const reamur = celsius * 4/5;
+
+      document.getElementById("hasil").innerHTML = `
+        <p>${celsius} &deg;C ke Fahrenheit: <strong>${fahrenheit.toFixed(2)} &deg;F</strong></p>
+        <p>${celsius} &deg;C ke Kelvin: <strong>${kelvin.toFixed(2)} K</strong></p>
+        <p>${celsius} &deg;C ke Reamur: <strong>${reamur.toFixed(2)} &deg;R</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
