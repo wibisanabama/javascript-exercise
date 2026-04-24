@@ -1,0 +1,17 @@
+[
+    {
+        "nama": "Bama",
+        "jenis_kelamin": "Laki-laki",
+        "umur": 16
+    }, 
+    {
+        "nama": "Adip",
+        "jenis_kelamin": "Laki-laki",
+        "umur": 16
+    }, 
+    {
+        "nama": "Panca",
+        "jenis_kelamin": "Laki-laki",
+        "umur": 16
+    }
+]
