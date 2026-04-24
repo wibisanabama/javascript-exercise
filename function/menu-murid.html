@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Murid</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .input-group { margin-bottom: 10px; }
+        .input-group input { width: calc(100% - 110px); margin-right: 10px; }
+        .input-group button { width: 100px; }
+        .list { margin-top: 20px; }
+        .list-item { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sistem Manajemen Murid</h2>
+        <div class="input-group">
+            <input type="text" id="namaInput" placeholder="Masukkan nama murid">
+            <button onclick="tambahNama()">Tambah</button>
+        </div>
+        <div class="list" id="muridList"></div>
+    </div>
+
+    <script>
+        const murid = [];
+        const muridList = document.getElementById('muridList');
+
+        function renderMurid() {
+            muridList.innerHTML = '';
+            murid.forEach((nama, index) => {
+                muridList.innerHTML += `<div class="list-item">${index + 1}. ${nama} <button onclick="hapusNama(${index})">Hapus</button></div>`;
+            });
+        }
+
+        function tambahNama() {
+            const namaInput = document.getElementById('namaInput');
+            const nama = namaInput.value.trim();
+            if (nama && !murid.includes(nama)) {
+                murid.push(nama);
+                namaInput.value = '';
+                renderMurid();
+            } else {
+                alert("Nama sudah ada atau kosong.");
+            }
+        }
+
+        function hapusNama(index) {
+            murid.splice(index, 1);
+            renderMurid();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("=".repeat(30));
+        const angka = parseInt(prompt("Inputkan Angka: "));
+            
+        function cekBilangan(angka) {
+            if (angka > 0) return "Positif";
+            if (angka < 0) return "Negatif";
+            return "Nol";
+        }
+        
+        console.log(`${angka} adalah bilangan ${cekBilangan(angka)}.`);
+    </script>
+</body>
+</html>
