@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balok</title>
+</head>
+<body>
+    <div class="input">
+        <div>
+            <label for="sisi">Inputkan Sisi: </label>
+            <input type="number" name="" id="sisi">
+        </div>
+    </div>
+    <div class="btn">
+        <button id="btnHitung" type="button">Hitung</button>
+    </div>
+    <div class="output">
+        <p>
+            Luas: <span id="luas"></span>
+        </p>
+        <p>
+            Keliling: <span id="keliling"></span>
+        </p>
+        <script>
+            const luas = document.getElementById("luas")
+            const keliling = document.getElementById("keliling")
+            const btnHitung = document.getElementById("btnHitung")
+            const sisi = document.getElementById("sisi")
+
+            btnHitung.addEventListener('click', function(){
+                const jmlhLuas = parseFloat(sisi.value) * parseFloat(sisi.value);
+                luas.innerHTML = jmlhLuas
+
+                const jmlhKeliling = 4 * parseFloat(sisi.value);
+                keliling.innerHTML = jmlhKeliling
+            })
+        </script>
+    </div>
+</body>
+</html>
