@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menentukan Indeks Nilai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff9e6;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 150px;
+    }
+    #hasil {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menentukan Indeks Nilai</h1>
+  <input type="number" id="nilai" placeholder="Masukkan nilai" />
+  <br />
+  <button onclick="cekNilai()">Cek Indeks</button>
+  <p id="hasil"></p>
+
+  <script>
+    function cekNilai() {
+      const input = document.getElementById('nilai').value;
+      const nilai = parseInt(input);
+      const hasil = document.getElementById('hasil');
+
+      if (isNaN(nilai)) {
+        hasil.textContent = "Masukkan nilai angka yang valid!";
+        return;
+      }
+
+      let indeks = '';
+      if (nilai >= 85) {
+        indeks = 'A';
+      } else if (nilai >= 70) {
+        indeks = 'B';
+      } else if (nilai >= 55) {
+        indeks = 'C';
+      } else if (nilai >= 40) {
+        indeks = 'D';
+      } else {
+        indeks = 'E';
+      }
+
+      hasil.textContent = `Indeks nilai: ${indeks}`;
+    }
+  </script>
+</body>
+</html>

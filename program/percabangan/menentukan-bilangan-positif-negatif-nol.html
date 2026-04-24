@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penentu Bilangan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    #hasil {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menentukan Bilangan Positif / Negatif / Nol</h1>
+  <input type="number" id="bilangan" placeholder="Masukkan bilangan">
+  <br>
+  <button onclick="cekBilangan()">Cek</button>
+  <p id="hasil"></p>
+
+  <script>
+    function cekBilangan() {
+      const input = document.getElementById('bilangan').value;
+      const bilangan = parseFloat(input);
+      const hasil = document.getElementById('hasil');
+
+      if (isNaN(bilangan)) {
+        hasil.textContent = "Masukkan angka yang valid!";
+      } else if (bilangan > 0) {
+        hasil.textContent = `${bilangan} adalah bilangan positif`;
+      } else if (bilangan < 0) {
+        hasil.textContent = `${bilangan} adalah bilangan negatif`;
+      } else {
+        hasil.textContent = `${bilangan} adalah nol`;
+      }
+    }
+  </script>
+</body>
+</html>

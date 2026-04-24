@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menuliskan Nama Bulan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fce4ec;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 150px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #hasil {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #880e4f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menuliskan Nama Bulan</h1>
+  <input type="number" id="nomorBulan" placeholder="Masukkan nomor bulan (1-12)" min="1" max="12" />
+  <br />
+  <button onclick="tuliskanBulan()">Tampilkan Nama Bulan</button>
+  <p id="hasil"></p>
+
+  <script>
+    function tuliskanBulan() {
+      const nomor = parseInt(document.getElementById('nomorBulan').value);
+      const hasil = document.getElementById('hasil');
+      const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                     "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+      if (isNaN(nomor) || nomor < 1 || nomor > 12) {
+        hasil.textContent = "Nomor bulan tidak valid";
+        return;
+      }
+
+      hasil.textContent = bulan[nomor - 1];
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mengurutkan 3 Bilangan Bulat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 100px;
+      margin: 5px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    #hasil {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #006064;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mengurutkan 3 Buah Bilangan Bulat</h1>
+  <input type="number" id="bil1" placeholder="Bilangan 1" />
+  <input type="number" id="bil2" placeholder="Bilangan 2" />
+  <input type="number" id="bil3" placeholder="Bilangan 3" />
+  <br />
+  <button onclick="urutkanBilangan()">Urutkan</button>
+  <p id="hasil"></p>
+
+  <script>
+    function urutkanBilangan() {
+      const bil1 = parseInt(document.getElementById('bil1').value);
+      const bil2 = parseInt(document.getElementById('bil2').value);
+      const bil3 = parseInt(document.getElementById('bil3').value);
+      const hasil = document.getElementById('hasil');
+
+      if ([bil1, bil2, bil3].some(n => isNaN(n))) {
+        hasil.textContent = "Masukkan ketiga bilangan bulat dengan benar!";
+        return;
+      }
+
+      const bilangan = [bil1, bil2, bil3];
+      bilangan.sort((a, b) => a - b);
+
+      hasil.textContent = `Bilangan terurut: [${bilangan.join(', ')}]`;
+    }
+  </script>
+</body>
+</html>

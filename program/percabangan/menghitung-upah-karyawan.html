@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menghitung Upah Karyawan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4c3;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 150px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #hasil {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #827717;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menghitung Upah Karyawan</h1>
+  <input type="number" id="jamKerja" placeholder="Masukkan jam kerja" min="0" />
+  <br />
+  <button onclick="hitungUpah()">Hitung Upah</button>
+  <p id="hasil"></p>
+
+  <script>
+    function hitungUpah() {
+      const jamKerjaInput = document.getElementById('jamKerja').value;
+      const jamKerja = parseInt(jamKerjaInput);
+      const hasil = document.getElementById('hasil');
+      const upahPerJam = 10000;
+
+      if (isNaN(jamKerja) || jamKerja < 0) {
+        hasil.textContent = "Masukkan jam kerja yang valid!";
+        return;
+      }
+
+      let upah;
+      if (jamKerja <= 12) {
+        upah = jamKerja * upahPerJam;
+      } else {
+        const lembur = jamKerja - 12;
+        upah = (12 * upahPerJam) + (lembur * upahPerJam * 1.5);
+      }
+
+      hasil.textContent = `Upah karyawan: Rp ${upah.toLocaleString('id-ID')}`;
+    }
+  </script>
+</body>
+</html>

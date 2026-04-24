@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Berat Badan Ideal dengan Toleransi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f6;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 180px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #hasil {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #ad1457;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menghitung Berat Badan Ideal dengan Toleransi</h1>
+  <input type="number" id="tinggi" placeholder="Masukkan tinggi badan (cm)" min="50" max="300" />
+  <br />
+  <button onclick="hitungBeratIdeal()">Hitung Berat Ideal</button>
+  <p id="hasil"></p>
+
+  <script>
+    function hitungBeratIdeal() {
+      const tinggiInput = document.getElementById('tinggi').value;
+      const tinggi = parseInt(tinggiInput);
+      const hasil = document.getElementById('hasil');
+      const toleransi = 5;
+
+      if (isNaN(tinggi) || tinggi < 50 || tinggi > 300) {
+        hasil.textContent = "Masukkan tinggi badan yang valid (50-300 cm)!";
+        return;
+      }
+
+      const ideal = tinggi - 100;
+      const batasBawah = ideal - toleransi;
+      const batasAtas = ideal + toleransi;
+
+      hasil.textContent = `Berat badan ideal adalah antara ${batasBawah}kg hingga ${batasAtas}kg.`;
+    }
+  </script>
+</body>
+</html>

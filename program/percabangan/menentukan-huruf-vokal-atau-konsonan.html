@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huruf Vokal atau Konsonan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      text-align: center;
+      padding: 50px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    #hasil {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menentukan Huruf Vokal atau Konsonan</h1>
+  <input type="text" id="huruf" maxlength="1" placeholder="Masukkan satu huruf">
+  <br>
+  <button onclick="cekHuruf()">Cek</button>
+  <p id="hasil"></p>
+
+  <script>
+    function cekHuruf() {
+      const input = document.getElementById('huruf').value;
+      const huruf = input.toLowerCase();
+      const vokal = ['a', 'i', 'u', 'e', 'o'];
+      const hasil = document.getElementById('hasil');
+
+      if (!huruf.match(/^[a-z]$/)) {
+        hasil.textContent = "Masukkan satu huruf alfabet!";
+      } else if (vokal.includes(huruf)) {
+        hasil.textContent = `${input} adalah huruf vokal`;
+      } else {
+        hasil.textContent = `${input} adalah huruf konsonan`;
+      }
+    }
+  </script>
+</body>
+</html>

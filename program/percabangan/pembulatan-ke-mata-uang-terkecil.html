@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pembulatan ke Mata Uang Terkecil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e3f2fd;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 180px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #hasil {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pembulatan ke Mata Uang Terkecil</h1>
+  <input type="number" id="nilai" placeholder="Masukkan nilai" />
+  <br />
+  <input type="number" id="kelipatan" placeholder="Masukkan kelipatan" />
+  <br />
+  <button onclick="hitungPembulatan()">Hitung Pembulatan</button>
+  <p id="hasil"></p>
+
+  <script>
+    function hitungPembulatan() {
+      const nilai = parseInt(document.getElementById('nilai').value);
+      const kelipatan = parseInt(document.getElementById('kelipatan').value);
+      const hasil = document.getElementById('hasil');
+
+      if (isNaN(nilai)) {
+        hasil.textContent = "Masukkan nilai yang valid!";
+        return;
+      }
+      if (isNaN(kelipatan) || kelipatan <= 0) {
+        hasil.textContent = "Masukkan kelipatan yang valid dan lebih dari 0!";
+        return;
+      }
+
+      const pembulatan = Math.round(nilai / kelipatan) * kelipatan;
+      hasil.textContent = `Hasil pembulatan: ${pembulatan}`;
+    }
+  </script>
+</body>
+</html>
