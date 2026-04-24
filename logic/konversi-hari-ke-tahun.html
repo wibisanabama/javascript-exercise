@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi Hari</title>
+</head>
+<body>
+    <h2>Konversi Jumlah Hari ke Tahun, Bulan, dan Hari</h2>
+
+    <label>Masukkan jumlah hari:</label><br>
+    <input type="number" id="jumlahHari" min="0"><br>
+
+    <button onclick="konversiHari()">Konversi</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function konversiHari() {
+            var x = parseInt(document.getElementById("jumlahHari").value);
+
+            if (isNaN(x) || x < 0) {
+                document.getElementById("hasil").textContent = "Masukkan jumlah hari yang valid.";
+                return;
+            }
+
+            var tahun = Math.floor(x / 365);
+            var sisaHari = x % 365;
+            var bulan = Math.floor(sisaHari / 30);
+            var hari = sisaHari % 30;
+
+            document.getElementById("hasil").textContent =
+                "Jumlah waktu: " + tahun + " tahun, " + bulan + " bulan, " + hari + " hari";
+        }
+    </script>
+</body>
+</html>

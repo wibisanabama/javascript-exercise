@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Upah</title>
+</head>
+<body>
+    <h2>Hitung Upah</h2>
+
+    <p>
+        Golongan (a, b, c, d): 
+        <input type="text" id="golongan" maxlength="1" value="">
+    </p>
+    <p>
+        Jam Kerja: 
+        <input type="number" id="jamKerja" value="" min="0">
+    </p>
+    <p>
+        Jam Lembur (opsional): 
+        <input type="number" id="jamLembur" value="" min="0">
+    </p>
+
+    <button onclick="hitungUpah()">Hitung Upah</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungUpah() {
+            const golongan = document.getElementById("golongan").value.toLowerCase();
+            const jamKerja = Number(document.getElementById("jamKerja").value);
+            const jamLembur = Number(document.getElementById("jamLembur").value);
+
+            const golonganValid = ['a', 'b', 'c', 'd'];
+            if (!golonganValid.includes(golongan)) {
+                document.getElementById("hasil").textContent = "Golongan tidak valid.";
+                return;
+            }
+
+            const upahPerJam = 4000;
+            const upahKerja = jamKerja * upahPerJam;
+            let upahLembur = 0;
+
+            if (jamLembur > 0) {
+                upahLembur = jamLembur * upahPerJam * 1.5;
+            }
+
+            const upahTotal = upahKerja + upahLembur;
+
+            document.getElementById("hasil").textContent = 
+                `Upah total untuk golongan ${golongan}, ${jamKerja} jam kerja dan ${jamLembur} jam lembur: Rp ${upahTotal.toLocaleString('id-ID')}`;
+        }
+    </script>
+</body>
+</html>

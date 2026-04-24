@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clipping Nilai</title>
+</head>
+<body>
+    <h2>Clipping Nilai</h2>
+    <p>Masukkan daftar nilai (pisahkan dengan koma):</p>
+    <input type="text" id="inputValues" placeholder="contoh: 260, -10, 120, 300, 255, -5"><br>
+    <button onclick="prosesClipping()">Proses</button>
+
+    <p id="hasilSebelum"></p>
+    <p id="hasilSesudah"></p>
+
+    <script>
+        function clipping(value) {
+            if (value > 255) {
+                return 255;
+            } else if (value < 0) {
+                return 0;
+            } else {
+                return value;
+            }
+        }
+
+        function prosesClipping() {
+            var inputText = document.getElementById("inputValues").value;
+            var inputArray = inputText.split(",").map(function(item) {
+                return parseFloat(item.trim());
+            });
+
+            var clippedArray = inputArray.map(function(value) {
+                return clipping(value);
+            });
+
+            document.getElementById("hasilSebelum").textContent = "Nilai sebelum clipping: " + inputArray.join(", ");
+            document.getElementById("hasilSesudah").textContent = "Nilai setelah clipping: " + clippedArray.join(", ");
+        }
+    </script>
+</body>
+</html>

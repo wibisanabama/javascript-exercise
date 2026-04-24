@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cek Jenis Segitiga</title>
+</head>
+<body>
+    <h2>Menentukan Jenis Segitiga</h2>
+
+    <label>Masukkan sisi a:</label><br>
+    <input type="number" id="sisiA"><br>
+
+    <label>Masukkan sisi b:</label><br>
+    <input type="number" id="sisiB"><br>
+
+    <label>Masukkan sisi c:</label><br>
+    <input type="number" id="sisiC"><br>
+
+    <button onclick="cekJenisSegitiga()">Cek Jenis Segitiga</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function cekJenisSegitiga() {
+            var a = parseInt(document.getElementById("sisiA").value);
+            var b = parseInt(document.getElementById("sisiB").value);
+            var c = parseInt(document.getElementById("sisiC").value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
+                document.getElementById("hasil").textContent = "Masukkan panjang sisi segitiga yang valid.";
+                return;
+            }
+
+            // Urutkan a, b, c agar a <= b <= c
+            var sisi = [a, b, c];
+            sisi.sort(function(x, y) { return x - y; });
+            a = sisi[0];
+            b = sisi[1];
+            c = sisi[2];
+
+            var jenis = "";
+
+            if (a + b <= c) {
+                jenis = "Bukan segitiga (jumlah dua sisi harus lebih dari sisi ketiga)";
+            } else if (a*a + b*b === c*c) {
+                jenis = "Segitiga Siku-siku";
+            } else if (a*a + b*b > c*c) {
+                jenis = "Segitiga Lancip";
+            } else {
+                jenis = "Segitiga Tumpul";
+            }
+
+            document.getElementById("hasil").textContent = jenis;
+        }
+    </script>
+</body>
+</html>

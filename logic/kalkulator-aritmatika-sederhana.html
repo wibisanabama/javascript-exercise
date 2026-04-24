@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h2>Kalkulator Sederhana</h2>
+
+    <label>Masukkan operand 1:</label><br>
+    <input type="number" id="operand1" step="any"><br>
+
+    <label>Masukkan operator (+, -, *, /):</label><br>
+    <input type="text" id="operator"><br>
+
+    <label>Masukkan operand 2:</label><br>
+    <input type="number" id="operand2" step="any"><br>
+
+    <button onclick="hitung()">Hitung</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitung() {
+            var operand1 = parseFloat(document.getElementById("operand1").value);
+            var operator = document.getElementById("operator").value.trim();
+            var operand2 = parseFloat(document.getElementById("operand2").value);
+            var hasil;
+
+            if (isNaN(operand1) || isNaN(operand2)) {
+                document.getElementById("hasil").textContent = "Operand harus berupa angka.";
+                return;
+            }
+
+            if (operator === '+') {
+                hasil = operand1 + operand2;
+            } else if (operator === '-') {
+                hasil = operand1 - operand2;
+            } else if (operator === '*') {
+                hasil = operand1 * operand2;
+            } else if (operator === '/') {
+                if (operand2 !== 0) {
+                    hasil = operand1 / operand2;
+                } else {
+                    hasil = "Tidak dapat dibagi dengan nol";
+                }
+            } else {
+                hasil = "Operator tidak valid";
+            }
+
+            document.getElementById("hasil").textContent =
+                "Hasil dari " + operand1 + " " + operator + " " + operand2 + " = " + hasil;
+        }
+    </script>
+</body>
+</html>

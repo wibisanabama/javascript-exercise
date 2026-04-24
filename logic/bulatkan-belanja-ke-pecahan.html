@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pembulatan Nilai Belanja</title>
+</head>
+<body>
+    <h2>Pembulatan Nilai Belanja ke Pecahan Terendah</h2>
+
+    <label>Masukkan total belanja:</label><br>
+    <input type="number" id="nilaiBelanja"><br>
+
+    <button onclick="bulatkanBelanja()">Bulatkan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function bulatkanBelanja() {
+            var nilai = parseInt(document.getElementById("nilaiBelanja").value);
+            if (isNaN(nilai) || nilai < 0) {
+                document.getElementById("hasil").textContent = "Masukkan nilai belanja yang valid.";
+                return;
+            }
+
+            if (nilai % 100 !== 0) {
+                nilai -= nilai % 100;
+            } else if (nilai % 50 !== 0) {
+                nilai -= nilai % 50;
+            } else if (nilai % 25 !== 0) {
+                nilai -= nilai % 25;
+            }
+
+            document.getElementById("hasil").textContent =
+                "Nilai belanja yang dibulatkan ke pecahan terendah adalah: Rp" + nilai;
+        }
+    </script>
+</body>
+</html>

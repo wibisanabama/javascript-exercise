@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Jarak Tempuh</title>
+</head>
+<body>
+    <h2>Hitung Jarak Tempuh</h2>
+
+    <label>Masukkan kecepatan (km/jam):</label><br>
+    <input type="number" id="kecepatan"><br>
+
+    <label>Masukkan waktu tempuh (jam):</label><br>
+    <input type="number" id="waktu"><br>
+
+    <button onclick="hitungJarak()">Hitung</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungJarak() {
+            var v = parseFloat(document.getElementById("kecepatan").value);
+            var t = parseFloat(document.getElementById("waktu").value);
+
+            if (isNaN(v) || isNaN(t) || v < 0 || t < 0) {
+                document.getElementById("hasil").textContent = "Masukkan nilai kecepatan dan waktu yang valid.";
+                return;
+            }
+
+            var s = v * t;
+            document.getElementById("hasil").textContent = "Jarak yang ditempuh adalah " + s + " km.";
+        }
+    </script>
+</body>
+</html>

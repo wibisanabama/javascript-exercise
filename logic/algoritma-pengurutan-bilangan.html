@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urutkan Tiga Bilangan</title>
+</head>
+<body>
+    <h2>Urutkan Tiga Bilangan</h2>
+
+    <label>Masukkan bilangan pertama:</label><br>
+    <input type="number" id="bil1"><br>
+
+    <label>Masukkan bilangan kedua:</label><br>
+    <input type="number" id="bil2"><br>
+
+    <label>Masukkan bilangan ketiga:</label><br>
+    <input type="number" id="bil3"><br>
+
+    <button onclick="urutkan()">Urutkan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function urutkan() {
+            var a = parseInt(document.getElementById("bil1").value);
+            var b = parseInt(document.getElementById("bil2").value);
+            var c = parseInt(document.getElementById("bil3").value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById("hasil").textContent = "Masukkan semua bilangan dengan benar.";
+                return;
+            }
+
+            if (a > b) {
+                var temp = a; a = b; b = temp;
+            }
+            if (a > c) {
+                var temp = a; a = c; c = temp;
+            }
+            if (b > c) {
+                var temp = b; b = c; c = temp;
+            }
+
+            document.getElementById("hasil").textContent = "Bilangan terurut: " + a + ", " + b + ", " + c;
+        }
+    </script>
+</body>
+</html>

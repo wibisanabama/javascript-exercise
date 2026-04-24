@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Volume</title>
+</head>
+<body>
+    <h2>Menghitung Volume V = (4/3) * m³</h2>
+
+    <label>Masukkan nilai massa (m):</label><br>
+    <input type="number" id="massa" step="any"><br>
+
+    <button onclick="hitungVolume()">Hitung Volume</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungVolume() {
+            var m = parseFloat(document.getElementById("massa").value);
+
+            if (isNaN(m)) {
+                document.getElementById("hasil").textContent = "Masukkan nilai massa yang valid.";
+                return;
+            }
+
+            var V = (4 / 3) * Math.pow(m, 3);
+
+            document.getElementById("hasil").textContent =
+                "Volume V untuk massa " + m + " adalah " + V;
+        }
+    </script>
+</body>
+</html>

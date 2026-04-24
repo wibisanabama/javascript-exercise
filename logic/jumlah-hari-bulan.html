@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jumlah Hari dalam Bulan</title>
+</head>
+<body>
+    <h2>Hitung Jumlah Hari dalam Bulan dan Tahun</h2>
+
+    <label>Masukkan nomor bulan (1-12):</label><br>
+    <input type="number" id="bulan"><br>
+
+    <label>Masukkan tahun:</label><br>
+    <input type="number" id="tahun"><br>
+
+    <button onclick="jumlahHari()">Hitung</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function jumlahHari() {
+            var bulan = parseInt(document.getElementById("bulan").value);
+            var tahun = parseInt(document.getElementById("tahun").value);
+
+            if (isNaN(bulan) || isNaN(tahun) || bulan < 1 || bulan > 12 || tahun <= 0) {
+                document.getElementById("hasil").textContent = "Masukkan bulan (1-12) dan tahun yang valid.";
+                return;
+            }
+
+            var hariPerBulan = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            // Cek tahun kabisat
+            if ((tahun % 4 === 0 && tahun % 100 !== 0) || (tahun % 400 === 0)) {
+                hariPerBulan[1] = 29;
+            }
+
+            var jumlah = hariPerBulan[bulan - 1];
+
+            document.getElementById("hasil").textContent = 
+                "Jumlah hari di bulan " + bulan + " tahun " + tahun + " adalah " + jumlah + " hari.";
+        }
+    </script>
+</body>
+</html>

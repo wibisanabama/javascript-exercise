@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penentuan Indeks Nilai</title>
+</head>
+<body>
+    <h2>Penentuan Indeks Nilai Ujian</h2>
+
+    <label>Masukkan nilai ujian:</label><br>
+    <input type="number" id="nilaiUjian"><br>
+
+    <button onclick="tentukanIndeks()">Tentukan Indeks</button>
+
+    <p id="hasilNilai"></p>
+    <p id="hasilIndeks"></p>
+
+    <script>
+        function tentukanIndeks() {
+            var nilai = parseInt(document.getElementById("nilaiUjian").value);
+
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                document.getElementById("hasilNilai").textContent = "Masukkan nilai ujian antara 0 sampai 100.";
+                document.getElementById("hasilIndeks").textContent = "";
+                return;
+            }
+
+            var indeks = '';
+            if (nilai >= 80) {
+                indeks = 'A';
+            } else if (nilai >= 70) {
+                indeks = 'B';
+            } else if (nilai >= 55) {
+                indeks = 'C';
+            } else if (nilai >= 40) {
+                indeks = 'D';
+            } else {
+                indeks = 'E';
+            }
+
+            document.getElementById("hasilNilai").textContent = "Nilai ujian: " + nilai;
+            document.getElementById("hasilIndeks").textContent = "Indeks nilai: " + indeks;
+        }
+    </script>
+</body>
+</html>

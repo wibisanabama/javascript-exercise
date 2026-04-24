@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nama Bulan</title>
+</head>
+<body>
+    <h2>Nama Bulan dari Nomor</h2>
+
+    <label>Masukkan nomor bulan (1-12):</label><br>
+    <input type="number" id="nomorBulan"><br>
+    <button onclick="tampilkanNamaBulan()">Tampilkan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function namaBulan(bulan) {
+            var bulanDict = {
+                1: "Januari",
+                2: "Februari",
+                3: "Maret",
+                4: "April",
+                5: "Mei",
+                6: "Juni",
+                7: "Juli",
+                8: "Agustus",
+                9: "September",
+                10: "Oktober",
+                11: "November",
+                12: "Desember"
+            };
+
+            if (bulan >= 1 && bulan <= 12) {
+                return bulanDict[bulan];
+            } else {
+                return "Nomor bulan tidak valid";
+            }
+        }
+
+        function tampilkanNamaBulan() {
+            var input = parseInt(document.getElementById("nomorBulan").value);
+            var hasil = namaBulan(input);
+            document.getElementById("hasil").textContent = hasil;
+        }
+    </script>
+</body>
+</html>

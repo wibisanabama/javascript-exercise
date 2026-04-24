@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi Karakter ke Integer</title>
+</head>
+<body>
+    <h2>Konversi Karakter ke Nilai Integer</h2>
+
+    <label>Masukkan karakter:</label><br>
+    <input type="text" id="karakter" maxlength="1"><br>
+
+    <button onclick="konversiKarakter()">Konversi</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function konversiKarakter() {
+            var char = document.getElementById("karakter").value;
+            var nilaiInteger;
+
+            if (char.length === 1 && char >= '0' && char <= '9') {
+                nilaiInteger = char.charCodeAt(0) - '0'.charCodeAt(0);
+            } else {
+                nilaiInteger = -99;
+            }
+
+            document.getElementById("hasil").textContent = "Nilai integer: " + nilaiInteger;
+        }
+    </script>
+</body>
+</html>

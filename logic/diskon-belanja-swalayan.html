@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Diskon Belanja</title>
+</head>
+<body>
+    <h2>Hitung Diskon Belanja</h2>
+
+    <label>Masukkan total belanja Anda (Rp):</label><br>
+    <input type="number" id="totalBelanja" step="any"><br>
+
+    <button onclick="hitungDiskon()">Hitung Diskon</button>
+
+    <p id="hasilDiskon"></p>
+    <p id="hasilHarga"></p>
+
+    <script>
+        function hitungDiskon() {
+            var totalBelanja = parseFloat(document.getElementById("totalBelanja").value);
+
+            if (isNaN(totalBelanja) || totalBelanja < 0) {
+                document.getElementById("hasilDiskon").textContent = "Masukkan total belanja yang valid.";
+                document.getElementById("hasilHarga").textContent = "";
+                return;
+            }
+
+            var diskon = 0;
+            if (totalBelanja > 100000) {
+                diskon = totalBelanja * 0.10;
+            }
+
+            var hargaSetelahDiskon = totalBelanja - diskon;
+
+            document.getElementById("hasilDiskon").textContent = "Diskon: Rp " + diskon.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("hasilHarga").textContent = "Harga Setelah Diskon: Rp " + hargaSetelahDiskon.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    </script>
+</body>
+</html>

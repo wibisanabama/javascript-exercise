@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung m</title>
+</head>
+<body>
+    <h2>Hitung m</h2>
+
+    <p>a: <input type="number" id="inputA" value=""></p>
+    <p>b: <input type="number" id="inputB" value=""></p>
+    <p>c: <input type="number" id="inputC" value=""></p>
+    <p>d: <input type="number" id="inputD" value=""></p>
+
+    <button onclick="hitungM()">Hitung</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungM() {
+            const a = Number(document.getElementById('inputA').value);
+            const b = Number(document.getElementById('inputB').value);
+            const c = Number(document.getElementById('inputC').value);
+            const d = Number(document.getElementById('inputD').value);
+
+            // Rumus m = ((a - b) / (3 * a * c)) * (1 - (b / (c * d)))
+            const m = ((a - b) / (3 * a * c)) * (1 - (b / (c * d)));
+
+            document.getElementById('hasil').textContent = `Nilai m adalah: ${m}`;
+        }
+    </script>
+</body>
+</html>

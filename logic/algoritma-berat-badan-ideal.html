@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Berat Badan Ideal</title>
+</head>
+<body>
+    <h2>Hitung Berat Badan Ideal</h2>
+    <label>Masukkan tinggi badan (dalam cm):</label><br>
+    <input type="number" id="tinggi"><br>
+    <button onclick="hitungBeratIdeal()">Hitung</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungBeratIdeal() {
+            var tinggi = parseFloat(document.getElementById("tinggi").value);
+            if (isNaN(tinggi) || tinggi <= 0) {
+                document.getElementById("hasil").textContent = "Masukkan tinggi badan yang valid.";
+                return;
+            }
+
+            var hasilPertama = tinggi - 100;
+            var sepuluhPersen = hasilPertama * 0.10;
+            var beratIdeal = hasilPertama - sepuluhPersen;
+
+            document.getElementById("hasil").textContent =
+                "Berat badan ideal untuk tinggi " + tinggi + " cm adalah " + beratIdeal.toFixed(2) + " kg.";
+        }
+    </script>
+</body>
+</html>

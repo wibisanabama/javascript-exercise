@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi Angka ke Romawi</title>
+</head>
+<body>
+    <h2>Konversi Bilangan Bulat ke Angka Romawi</h2>
+
+    <label>Masukkan bilangan bulat positif:</label><br>
+    <input type="number" id="angka" min="1"><br>
+
+    <button onclick="konversiRomawi()">Konversi</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function konversiRomawi() {
+            var n = parseInt(document.getElementById("angka").value);
+
+            if (isNaN(n) || n <= 0) {
+                document.getElementById("hasil").textContent = "Masukkan bilangan bulat positif yang valid.";
+                return;
+            }
+
+            var romawiNilai = [
+                [1000, "M"],
+                [900, "CM"],
+                [500, "D"],
+                [400, "CD"],
+                [100, "C"],
+                [90, "XC"],
+                [50, "L"],
+                [40, "XL"],
+                [10, "X"],
+                [9, "IX"],
+                [5, "V"],
+                [4, "IV"],
+                [1, "I"]
+            ];
+
+            var hasil = "";
+
+            for (var i = 0; i < romawiNilai.length; i++) {
+                var nilai = romawiNilai[i][0];
+                var simbol = romawiNilai[i][1];
+                while (n >= nilai) {
+                    hasil += simbol;
+                    n -= nilai;
+                }
+            }
+
+            document.getElementById("hasil").textContent = "Angka Romawi: " + hasil;
+        }
+    </script>
+</body>
+</html>

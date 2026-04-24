@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi Panjang</title>
+</head>
+<body>
+    <h2>Konversi Panjang dari Meter ke Inci, Kaki, dan Yard</h2>
+
+    <label>Masukkan panjang benda dalam meter:</label><br>
+    <input type="number" id="panjangMeter" step="any" min="0"><br>
+
+    <button onclick="konversiPanjang()">Konversi</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function konversiPanjang() {
+            var panjang = parseFloat(document.getElementById("panjangMeter").value);
+
+            if (isNaN(panjang) || panjang < 0) {
+                document.getElementById("hasil").textContent = "Masukkan panjang yang valid.";
+                return;
+            }
+
+            var inci = panjang * (1000 / 25.4);
+            var kaki = panjang * (100 / 30.48);
+            var yard = panjang / 0.9144;
+
+            document.getElementById("hasil").textContent =
+                "Panjang dalam inci: " + inci.toFixed(2) + " inci\n" +
+                "Panjang dalam kaki: " + kaki.toFixed(2) + " kaki\n" +
+                "Panjang dalam yard: " + yard.toFixed(2) + " yard";
+        }
+    </script>
+</body>
+</html>

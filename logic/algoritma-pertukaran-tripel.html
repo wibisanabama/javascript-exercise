@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pertukaran Nilai</title>
+</head>
+<body>
+    <h2>Pertukaran Nilai x → y → z → x</h2>
+
+    <label>Masukkan nilai x:</label><br>
+    <input type="number" id="nilaiX"><br>
+
+    <label>Masukkan nilai y:</label><br>
+    <input type="number" id="nilaiY"><br>
+
+    <label>Masukkan nilai z:</label><br>
+    <input type="number" id="nilaiZ"><br>
+
+    <button onclick="tukarNilai()">Tukar</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function tukarNilai() {
+            var x = parseInt(document.getElementById("nilaiX").value);
+            var y = parseInt(document.getElementById("nilaiY").value);
+            var z = parseInt(document.getElementById("nilaiZ").value);
+
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+                document.getElementById("hasil").textContent = "Masukkan semua nilai dengan benar.";
+                return;
+            }
+
+            var temp = x;
+            x = y;
+            y = z;
+            z = temp;
+
+            document.getElementById("hasil").textContent = 
+                "Nilai setelah pertukaran: x = " + x + ", y = " + y + ", z = " + z;
+        }
+    </script>
+</body>
+</html>

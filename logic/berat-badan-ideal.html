@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cek Berat Badan Ideal</title>
+</head>
+<body>
+    <h2>Cek Berat Badan Ideal</h2>
+
+    <label>Masukkan berat badan (kg):</label><br>
+    <input type="number" id="bb" step="any"><br>
+
+    <label>Masukkan tinggi badan (cm):</label><br>
+    <input type="number" id="tb" step="any"><br>
+
+    <button onclick="cekBeratBadan()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function cekBeratBadan() {
+            var BB = parseFloat(document.getElementById("bb").value);
+            var TB = parseFloat(document.getElementById("tb").value);
+
+            if (isNaN(BB) || isNaN(TB) || BB <= 0 || TB <= 0) {
+                document.getElementById("hasil").textContent = "Masukkan berat dan tinggi badan yang valid.";
+                return;
+            }
+
+            var BB_ideal = TB - 100;
+            var selisih = Math.abs(BB - BB_ideal);
+            var status = selisih <= 2 ? "ideal" : "tidak ideal";
+
+            document.getElementById("hasil").textContent = "Status berat badan: " + status;
+        }
+    </script>
+</body>
+</html>

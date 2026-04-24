@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hitung Selisih Tanggal</title>
+</head>
+<body>
+    <h2>Hitung Selisih Tanggal</h2>
+
+    <p>Masukkan tanggal pertama (dd mm yyyy):</p>
+    <input type="number" id="dd1" min="1" max="31" placeholder="dd" style="width:50px;">
+    <input type="number" id="mm1" min="1" max="12" placeholder="mm" style="width:50px;">
+    <input type="number" id="yy1" min="0" placeholder="yyyy" style="width:60px;">
+
+    <p>Masukkan tanggal kedua (dd mm yyyy):</p>
+    <input type="number" id="dd2" min="1" max="31" placeholder="dd" style="width:50px;">
+    <input type="number" id="mm2" min="1" max="12" placeholder="mm" style="width:50px;">
+    <input type="number" id="yy2" min="0" placeholder="yyyy" style="width:60px;">
+
+    <br><br>
+    <button onclick="hitungSelisih()">Hitung Selisih</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungSelisih() {
+            // Ambil input
+            let dd1 = parseInt(document.getElementById("dd1").value);
+            let mm1 = parseInt(document.getElementById("mm1").value);
+            let yy1 = parseInt(document.getElementById("yy1").value);
+
+            let dd2 = parseInt(document.getElementById("dd2").value);
+            let mm2 = parseInt(document.getElementById("mm2").value);
+            let yy2 = parseInt(document.getElementById("yy2").value);
+
+            // Validasi sederhana
+            if (isNaN(dd1) || isNaN(mm1) || isNaN(yy1) || isNaN(dd2) || isNaN(mm2) || isNaN(yy2)) {
+                document.getElementById("hasil").textContent = "Mohon masukkan semua tanggal dengan benar.";
+                return;
+            }
+
+            // Fungsi konversi tanggal ke total hari
+            function konversiKeHari(dd, mm, yy) {
+                return (yy * 365) + (mm * 30) + dd;
+            }
+
+            let totalHari1 = konversiKeHari(dd1, mm1, yy1);
+            let totalHari2 = konversiKeHari(dd2, mm2, yy2);
+
+            let selisihHari = Math.abs(totalHari2 - totalHari1);
+
+            let tahun = Math.floor(selisihHari / 365);
+            let sisaHari = selisihHari % 365;
+            let bulan = Math.floor(sisaHari / 30);
+            let hari = sisaHari % 30;
+
+            document.getElementById("hasil").textContent = 
+                `Selisih: ${tahun} tahun, ${bulan} bulan, ${hari} hari`;
+        }
+    </script>
+</body>
+</html>
