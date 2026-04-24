@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="angka"></div>
+    <div id="nama"></div>
+    <div id="alamat"></div>
+    <div id="clock">
+        <span id="jam">00</span>:
+        <span id="menit">00</span>:
+        <span id="detik">00</span>
+    </div>
+    <script>
+        const max = 30
+        let age = 20
+        console.log(`Nilai maksimal adalah ${max} untuk usia ${age}`)
+
+        /* ini komentar */
+
+        let sisi = 10
+        console.log(`
+            Sisi: ${sisi}
+            Luas: ${sisi * sisi}
+            Keliling: ${sisi * 4}
+        `)
+
+        const divAngka = document.querySelector("#angka")
+        const divNama = document.querySelector("#nama")
+        const divAlamat = document.querySelector("#alamat");
+
+        angka = 15
+        nama = "Bama"
+        alamat = "Cianjur"
+
+        divAngka.textContent = angka
+        divNama.innerHTML = nama
+        divAlamat.textContent = alamat
+
+        function perkalian(angka, pengkali){
+            return angka * pengkali
+        }
+        console.log(perkalian(5, 10))
+
+        function kalimat(nama, jk, kelas){
+            return `Nama saya ${nama}, saya ${jk}, murid kelas ${kelas}`
+        }
+        console.log(kalimat("Bama", "laki-laki", "X PPLG 2"))
+
+        function pangkat(angka, pangkat){
+            return angka ** pangkat
+        }
+        console.log(pangkat(3, 10))
+
+        const pangkatV2 = (angka, pangkat) => angka ** pangkat
+        const tampil = () => console.log("test")
+
+        const divDetik = document.querySelector("#detik")
+        let detik = Number(divDetik.textContent)
+        const changedetik = () => {
+            detik++
+            divDetik.textContent = detik
+        }
+        setInterval(changedetik, 1000)
+
+        const divMenit = document.querySelector("#menit")
+        let menit = Number(divMenit.textContent)
+        const changemenit = () => {
+            menit++
+            divMenit.textContent = menit
+        }
+        setInterval(changemenit, 60000)
+
+        const divJam = document.querySelector("#jam")
+        let jam = Number(divJam.textContent)
+        const changejam = () => {
+            jam++
+            divJam.textContent = jam
+        }
+        setInterval(changejam, 3600000)
+
+        const clockCounter = () => {
+            detik++
+            if (detik == 60) {
+                menit++
+                detik = 0
+            }
+            if (menit == 60) {
+                jam++
+                menit = 0
+            }
+            divDetik.textContent = detik < 10 ? `0${detik}`: detik
+            divMenit.textContent = menit < 10 ? `0${menit}`: menit;
+            divJam.textContent = jam < 10 ? `0${jam}`: jam;
+        }
+        setInterval(clockCounter, 1000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Java Script 1</title>
+</head>
+<body>
+    <script>
+            console.log("Balok")
+            let p = Number(prompt("Masukkan Panjang: "))
+            let l = Number(prompt("Masukkan Lebar: "))
+            let t = Number(prompt("Masukkan Tinggi: "))
+
+            let lp = 2 * (p * l + p * t + l * t)
+            let v = p * l * t
+            let k = 4 * (p + l + t)
+
+            console.log("Luas Permukaan: " + lp)
+            console.log("Volume: " + v)
+            console.log("Keliling: " + k)
+    </script>
+    <script>
+            console.log("Tabung")
+            let jari = Number(prompt("Masukkan Jari-jari: "))
+            let tinggi = Number(prompt("Masukkan Tinggi: "))
+
+            let permukaan = 2 * 3.14 * jari * (jari + tinggi)
+            let selimut = 2 * 3.14 * jari * tinggi
+            let volume = 3.14 * jari * jari * tinggi
+
+            console.log("Luas Permukaan: ", permukaan)
+            console.log("Luas Selimut: ", selimut)
+            console.log("Volume: ", volume)
+    </script>
+</body>
+</html>
