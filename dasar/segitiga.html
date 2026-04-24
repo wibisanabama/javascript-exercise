@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("===========================");
+        console.log("PROGRAM SEGITIGA");
+        console.log("===========================");
+
+        const tinggi = parseFloat(prompt("Masukkan tinggi: "));
+        const alas = parseFloat(prompt("Masukkan alas: "));
+
+        const luasSegitiga = 0.5 * alas * tinggi;
+        const kelilingSegitiga = alas + 2 * Math.sqrt(Math.pow(tinggi, 2) + Math.pow(alas / 2, 2));
+
+        console.log(`Luas: ${luasSegitiga} cm2`);
+        console.log(`Keliling: ${kelilingSegitiga} cm`);
+    </script>
+</body>
+</html>
