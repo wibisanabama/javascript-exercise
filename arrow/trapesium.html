@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hitung Luas dan Keliling Trapesium</title>
+</head>
+<body>
+
+  <h2>Hitung Luas dan Keliling Trapesium</h2>
+
+  <label for="sisi1">Sisi Sejajar 1:</label>
+  <input type="number" id="sisi1" placeholder="Masukkan sisi sejajar 1"><br><br>
+
+  <label for="sisi2">Sisi Sejajar 2:</label>
+  <input type="number" id="sisi2" placeholder="Masukkan sisi sejajar 2"><br><br>
+
+  <label for="sisi3">Sisi Tidak Sejajar 1:</label>
+  <input type="number" id="sisi3" placeholder="Masukkan sisi tidak sejajar 1"><br><br>
+
+  <label for="sisi4">Sisi Tidak Sejajar 2:</label>
+  <input type="number" id="sisi4" placeholder="Masukkan sisi tidak sejajar 2"><br><br>
+
+  <label for="tinggi">Tinggi:</label>
+  <input type="number" id="tinggi" placeholder="Masukkan tinggi"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="output"></div>
+
+  <script>
+    const luas = (s1, s2, t) => 0.5 * (s1 + s2) * t;
+    const keliling = (s1, s2, s3, s4) => s1 + s2 + s3 + s4;
+
+    function hitung() {
+      const sisi1 = parseFloat(document.getElementById('sisi1').value);
+      const sisi2 = parseFloat(document.getElementById('sisi2').value);
+      const sisi3 = parseFloat(document.getElementById('sisi3').value);
+      const sisi4 = parseFloat(document.getElementById('sisi4').value);
+      const tinggi = parseFloat(document.getElementById('tinggi').value);
+
+      if ([sisi1, sisi2, sisi3, sisi4, tinggi].some(v => isNaN(v) || v <= 0)) {
+        document.getElementById('output').innerText = "Mohon masukkan semua nilai dengan benar.";
+        return;
+      }
+
+      const hasilLuas = luas(sisi1, sisi2, tinggi);
+      const hasilKeliling = keliling(sisi1, sisi2, sisi3, sisi4);
+
+      document.getElementById('output').innerHTML =
+        `Luas: ${hasilLuas} <br>` +
+        `Keliling: ${hasilKeliling}`;
+    }
+  </script>
+
+</body>
+</html>

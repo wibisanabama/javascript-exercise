@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hitung Luas dan Volume Bola</title>
+</head>
+<body>
+
+  <h2>Hitung Luas dan Volume Bola</h2>
+
+  <label for="jari">Jari-jari:</label>
+  <input type="number" id="jari" placeholder="Masukkan jari-jari">
+  <br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="output"></div>
+
+  <script>
+    const luas = r => 4 * 3.14 * r * r;
+    const volume = r => (4 / 3) * 3.14 * r * r * r;
+
+    function hitung() {
+      const jari = parseFloat(document.getElementById("jari").value);
+
+      if (isNaN(jari) || jari <= 0) {
+        document.getElementById("output").innerText = "Mohon masukkan jari-jari yang valid.";
+        return;
+      }
+
+      const hasilLuas = luas(jari).toFixed(2);
+      const hasilVolume = volume(jari).toFixed(2);
+
+      document.getElementById("output").innerHTML = 
+        "Luas Permukaan: " + hasilLuas + "<br>" +
+        "Volume Bola: " + hasilVolume;
+    }
+  </script>
+
+</body>
+</html>

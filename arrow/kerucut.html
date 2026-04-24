@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hitung Kerucut</title>
+</head>
+<body>
+
+  <h2>Hitung Luas dan Volume Kerucut</h2>
+
+  <label for="jari">Jari-jari:</label>
+  <input type="number" id="jari" placeholder="Masukkan jari-jari"><br><br>
+
+  <label for="garisPelukis">Garis Pelukis:</label>
+  <input type="number" id="garisPelukis" placeholder="Masukkan garis pelukis"><br><br>
+
+  <label for="tinggi">Tinggi:</label>
+  <input type="number" id="tinggi" placeholder="Masukkan tinggi"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="output"></div>
+
+  <script>
+    const luas_permukaan = (r, s) => 3.14 * r * (r + s);
+    const luas_selimut = (r, s) => 3.14 * r * s;
+    const volume = (r, t) => (1/3) * 3.14 * r * r * t;
+
+    function hitung() {
+      const jari = parseFloat(document.getElementById('jari').value);
+      const garisPelukis = parseFloat(document.getElementById('garisPelukis').value);
+      const tinggi = parseFloat(document.getElementById('tinggi').value);
+
+      if (isNaN(jari) || isNaN(garisPelukis) || isNaN(tinggi) || jari <= 0 || garisPelukis <= 0 || tinggi <= 0) {
+        document.getElementById('output').innerText = "Mohon masukkan semua nilai dengan benar.";
+        return;
+      }
+
+      const hasilLuasPermukaan = luas_permukaan(jari, garisPelukis).toFixed(2);
+      const hasilLuasSelimut = luas_selimut(jari, garisPelukis).toFixed(2);
+      const hasilVolume = volume(jari, tinggi).toFixed(2);
+
+      document.getElementById('output').innerHTML = 
+        `Luas Permukaan: ${hasilLuasPermukaan} <br>` +
+        `Luas Selimut: ${hasilLuasSelimut} <br>` +
+        `Volume: ${hasilVolume}`;
+    }
+  </script>
+
+</body>
+</html>

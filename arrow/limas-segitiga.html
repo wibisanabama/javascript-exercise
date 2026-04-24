@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hitung Luas Permukaan dan Volume Limas Segitiga</title>
+</head>
+<body>
+
+  <h2>Hitung Luas Permukaan dan Volume Limas Segitiga</h2>
+
+  <label for="alas">Alas:</label>
+  <input type="number" id="alas" placeholder="Masukkan alas"><br><br>
+
+  <label for="tinggiSegitiga">Tinggi Segitiga:</label>
+  <input type="number" id="tinggiSegitiga" placeholder="Masukkan tinggi segitiga"><br><br>
+
+  <label for="tinggiLimas">Tinggi Limas:</label>
+  <input type="number" id="tinggiLimas" placeholder="Masukkan tinggi limas"><br><br>
+
+  <label for="sisi1">Sisi 1:</label>
+  <input type="number" id="sisi1" placeholder="Masukkan sisi 1"><br><br>
+
+  <label for="sisi2">Sisi 2:</label>
+  <input type="number" id="sisi2" placeholder="Masukkan sisi 2"><br><br>
+
+  <label for="sisi3">Sisi 3:</label>
+  <input type="number" id="sisi3" placeholder="Masukkan sisi 3"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="output"></div>
+
+  <script>
+    const luas_alas = (a, t) => 0.5 * a * t;
+    const luas_sisi = (a, t) => 0.5 * a * t;
+
+    const luas_permukaan = (a, s1, s2, s3, t) =>
+      luas_alas(a, t) + luas_sisi(a, s1) + luas_sisi(a, s2) + luas_sisi(a, s3);
+
+    const volume = (a, t1, t2) => (1/3) * luas_alas(a, t1) * t2;
+
+    function hitung() {
+      const alas = parseFloat(document.getElementById('alas').value);
+      const tinggiSegitiga = parseFloat(document.getElementById('tinggiSegitiga').value);
+      const tinggiLimas = parseFloat(document.getElementById('tinggiLimas').value);
+      const sisi1 = parseFloat(document.getElementById('sisi1').value);
+      const sisi2 = parseFloat(document.getElementById('sisi2').value);
+      const sisi3 = parseFloat(document.getElementById('sisi3').value);
+
+      if ([alas, tinggiSegitiga, tinggiLimas, sisi1, sisi2, sisi3].some(v => isNaN(v) || v <= 0)) {
+        document.getElementById('output').innerText = "Mohon masukkan semua nilai dengan benar.";
+        return;
+      }
+
+      const luasPermukaan = luas_permukaan(alas, sisi1, sisi2, sisi3, tinggiSegitiga).toFixed(2);
+      const vol = volume(alas, tinggiSegitiga, tinggiLimas).toFixed(2);
+
+      document.getElementById('output').innerHTML =
+        `Luas Permukaan: ${luasPermukaan} <br>` +
+        `Volume: ${vol}`;
+    }
+  </script>
+
+</body>
+</html>

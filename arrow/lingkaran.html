@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hitung Luas dan Keliling Lingkaran</title>
+</head>
+<body>
+
+  <h2>Hitung Luas dan Keliling Lingkaran</h2>
+
+  <label for="jariJari">Jari-jari:</label>
+  <input type="number" id="jariJari" placeholder="Masukkan jari-jari"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="output"></div>
+
+  <script>
+    const luas = r => 3.14 * r * r;
+    const keliling = r => 2 * 3.14 * r;
+
+    function hitung() {
+      const jariJari = parseFloat(document.getElementById('jariJari').value);
+      
+      if (isNaN(jariJari) || jariJari <= 0) {
+        document.getElementById('output').innerText = "Mohon masukkan jari-jari yang valid.";
+        return;
+      }
+
+      const hasilLuas = luas(jariJari).toFixed(2);
+      const hasilKeliling = keliling(jariJari).toFixed(2);
+
+      document.getElementById('output').innerHTML = 
+        `Luas: ${hasilLuas} <br>` +
+        `Keliling: ${hasilKeliling}`;
+    }
+  </script>
+
+</body>
+</html>

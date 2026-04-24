@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hitung Luas dan Keliling</title>
+</head>
+<body>
+
+  <h2>Hitung Luas dan Keliling</h2>
+
+  <label for="alas">Alas:</label>
+  <input type="number" id="alas" placeholder="Masukkan alas"><br><br>
+
+  <label for="tinggi">Tinggi:</label>
+  <input type="number" id="tinggi" placeholder="Masukkan tinggi"><br><br>
+
+  <label for="sisiMiring">Sisi Miring:</label>
+  <input type="number" id="sisiMiring" placeholder="Masukkan sisi miring"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="output"></div>
+
+  <script>
+    const luas = (a, t) => a * t;
+    const keliling = (a, sm) => 2 * (a + sm);
+
+    function hitung() {
+      const alas = parseFloat(document.getElementById('alas').value);
+      const tinggi = parseFloat(document.getElementById('tinggi').value);
+      const sisiMiring = parseFloat(document.getElementById('sisiMiring').value);
+
+      if (isNaN(alas) || isNaN(tinggi) || isNaN(sisiMiring) || alas <= 0 || tinggi <= 0 || sisiMiring <= 0) {
+        document.getElementById('output').innerText = "Mohon masukkan semua nilai dengan benar.";
+        return;
+      }
+
+      const hasilLuas = luas(alas, tinggi);
+      const hasilKeliling = keliling(alas, sisiMiring);
+
+      document.getElementById('output').innerHTML = 
+        "Luas\t: " + hasilLuas + "<br>" +
+        "Keliling: " + hasilKeliling;
+    }
+  </script>
+
+</body>
+</html>
