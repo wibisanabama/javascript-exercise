@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const q = parseInt(prompt('Muatan Listrik: '));
+        const v = parseInt(prompt('Potensial Listrik: '));
+        const l = parseInt(prompt('Kuat Arus Listrik: '));
+        const r = parseInt(prompt('Hambatan: '));
+        const t = parseInt(prompt('Waktu: '));
+
+        const epl = q * v;
+        const eldr = l * l * r * t;
+
+        console.log(`Energi Potensial Listrik: ${epl}`);
+        console.log(`Energi Listrik Dalam Rangkaian: ${eldr}`);
+    </script>
+</body>
+</html>

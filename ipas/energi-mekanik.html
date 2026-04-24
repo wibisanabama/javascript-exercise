@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const m = parseInt(prompt('Masukkan massa: '));
+        const h = parseInt(prompt('Masukkan ketinggian: '));
+        const v = parseInt(prompt('Masukkan kecepatan benda: '));
+        const g = 10;
+
+        const ep = m * g * h;
+        const ek = 0.5 * m * v * v;
+        const em = ep + ek;
+
+        console.log(`Energi Potensial: ${ep}`);
+        console.log(`Energi Kinetik: ${ek}`);
+        console.log(`Energi Mekanik: ${em}`);
+    </script>
+</body>
+</html>
