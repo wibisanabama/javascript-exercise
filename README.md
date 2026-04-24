@@ -1,2 +1,2 @@
-# javascript-exercise
+# JavaScript Exercise
 JavaScript programs
